@@ -1,0 +1,28 @@
+/* フォント設定 */
+body {
+    font-family: "Inika", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ヘッダー全体 */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #E0DFDE;
+}
+
+/* ヘッダー内コンテナ */
+.header__inner {
+    max-width: 1230px;
+    padding: 20px 15px;
+    margin: 0 auto;
+}
+
+/* ヘッダーロゴ */
+.header__logo {
+    font-size: 40px;
+    color: #8B7969;
+    text-decoration: none;
+}

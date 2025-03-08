@@ -11,4 +11,10 @@ class ContactController extends Controller
     {
         return view('index');
     }
+
+    // お問い合わせフォーム入力ページ表示
+    public function confirm()
+    {
+        return view('confirm');
+    }
 }

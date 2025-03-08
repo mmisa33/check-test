@@ -12,7 +12,7 @@
     </div>
 
     <!-- 問い合わせ確認テーブル -->
-    <form class="form" action="/" method="post">
+    <form class="form" action="/thanks" method="post">
         @csrf
         <div class="confirm-table">
             <table class="confirm-table__inner">
@@ -55,7 +55,9 @@
                     <td class="confirm-table__text">
                         <input type="tel" name="tel" value="{{ $contact['tel_area'] . '' . $contact['tel_number'] . '' . $contact['tel_end'] }}" readonly>
                         <!-- 隠しフィールドで実際のデータを送信 -->
-                        <input type="hidden" name="tel" value="{{ $contact['tel_area'] . '' . $contact['tel_number'] . '' . $contact['tel_end'] }}">
+                        <input type="hidden" name="tel_area" value="{{ $contact['tel_area'] }}">
+                        <input type="hidden" name="tel_number" value="{{ $contact['tel_number'] }}">
+                        <input type="hidden" name="tel_end" value="{{ $contact['tel_end'] }}">
                     </td>
                 </tr>
 
@@ -106,7 +108,7 @@
             <!-- 送信 -->
             <button class="form__button-submit" type="submit">送信</button>
             <!-- 修正 -->
-            <a class="form__button-edit" href="#" onclick="event.preventDefault(); history.back();">修正</a>
+            <a class="form__button-edit" href="javascript:void(0);" onclick="event.preventDefault(); history.back();">修正</a>
         </div>
     </form>
 </div>

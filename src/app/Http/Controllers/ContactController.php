@@ -20,9 +20,18 @@ class ContactController extends Controller
     // お問い合わせフォーム確認ページ表示
     public function confirm(ContactRequest $request)
     {
-        $contact = $request->only(['category_id','first_name','last_name','gender','email', 'tel_area', 'tel_number', 'tel_end', 'address', 'building', 'detail']);
+        $contact = $request->only(['category_id', 'first_name', 'last_name', 'gender', 'email', 'tel_area', 'tel_number', 'tel_end', 'address', 'building', 'detail']);
         $category = Category::find($contact['category_id']);
 
         return view('confirm', compact('contact', 'category'));
+    }
+
+    // 入力したデータの保存
+    public function store(ContactRequest $request)
+    {
+        $contact = $request->only(['category_id', 'first_name', 'last_name', 'gender', 'email', 'tel_area', 'tel_number', 'tel_end', 'address', 'building', 'detail']);
+        Contact::create($contact);
+
+        return view('thanks');
     }
 }

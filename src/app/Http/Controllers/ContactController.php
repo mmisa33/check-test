@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
@@ -13,8 +14,9 @@ class ContactController extends Controller
     }
 
     // お問い合わせフォーム入力ページ表示
-    public function confirm()
+    public function confirm(ContactRequest $request)
     {
-        return view('confirm');
+        $contact = $request->only(['category_id','first_name','last_name','gender','email','tel','address','building','detail']);
+        return view('confirm', ['contact' => $contact]);
     }
 }

@@ -173,7 +173,8 @@
 
 /* エラー */
 .form__error {
-    /* 後ほど設定 */
+    padding: 5px 0px;
+    color: #ff0000;
 }
 
 /* 送信ボタン */

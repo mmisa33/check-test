@@ -31,7 +31,9 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">性別</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="gender" value="@if($contact['gender'] == 1)男性 @elseif($contact['gender'] == 2)女性 @elseif($contact['gender'] == 3)その他 @endif" readonly>
+                        <input type="text" name="gender"
+                        value="{{ ['1' => '男性', '2' => '女性', '3' => 'その他'][$contact['gender']] }}"
+                        readonly>
                         <!-- 隠しフィールドで実際のデータを送信  -->
                         <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
                     </td>

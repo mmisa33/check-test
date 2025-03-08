@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Category;
 use App\Http\Requests\ContactRequest;
@@ -21,8 +20,10 @@ class ContactController extends Controller
     // お問い合わせフォーム確認ページ表示
     public function confirm(ContactRequest $request)
     {
-        $contact = $request->only(['category_id','first_name','last_name','gender','email','tel','address','building','detail']);
+        $contact = $request->only(['category_id','first_name','last_name','gender','email', 'tel_area', 'tel_number', 'tel_end', 'address', 'building', 'detail']);
+        $category = Category::find($contact['category_id']);
+        $contact['tel'] = $contact['tel_area'] . '' . $contact['tel_number'] . '' . $contact['tel_end'];
 
-        return view('confirm', compact('contact'));
+        return view('confirm', compact('contact', 'category'));
     }
 }

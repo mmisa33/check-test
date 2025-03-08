@@ -48,6 +48,10 @@ class ContactRequest extends FormRequest
             $telNumber = $this->input('tel_number');
             $telEnd = $this->input('tel_end');
 
+            // 各フィールドを結合して1つの電話番号を作成
+            $tel = $telArea . '-' . $telNumber . '-' . $telEnd;
+
+
             // 各フィールドの長さをチェック
             $areaLen = strlen((string) $telArea);
             $numberLen = strlen((string) $telNumber);

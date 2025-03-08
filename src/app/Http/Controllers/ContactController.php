@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
+use App\Models\Category;
 use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
@@ -10,13 +12,17 @@ class ContactController extends Controller
     // お問い合わせフォーム入力ページ表示
     public function index()
     {
-        return view('index');
+        $contacts = Contact::with('category')->get();
+        $categories = Category::all();
+
+        return view('index', compact('contacts', 'categories'));
     }
 
-    // お問い合わせフォーム入力ページ表示
+    // お問い合わせフォーム確認ページ表示
     public function confirm(ContactRequest $request)
     {
         $contact = $request->only(['category_id','first_name','last_name','gender','email','tel','address','building','detail']);
-        return view('confirm', ['contact' => $contact]);
+
+        return view('confirm', compact('contact'));
     }
 }

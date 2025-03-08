@@ -152,9 +152,9 @@
                 <div class="form__select-wrapper">
                     <select class="form__select" name="category_id">
                         <option value="">選択してください</option>
-                        <option value="1" {{ old('category_id') == 1 ? 'selected' : '' }}>カテゴリ1</option>
-                        <option value="2" {{ old('category_id') == 2 ? 'selected' : '' }}>カテゴリ2</option>
-                        <option value="3" {{ old('category_id') == 3 ? 'selected' : '' }}>カテゴリ3</option>
+                        @foreach ($categories as $category)
+                        <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+                        @endforeach
                     </select>
                     <span class="form__select-arrow"></span>
                 </div>

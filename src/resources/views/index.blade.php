@@ -25,6 +25,7 @@
                     <input type="text" name="last_name" placeholder="例: 山田" value="{{ old('last_name') }}">
                     <input type="text" name="first_name" placeholder="例: 太郎" value="{{ old('first_name') }}">
                 </div>
+                <!-- エラーメッセージ -->
                 <div class="form__error">
                     @error('last_name')
                     {{ $message }}
@@ -54,6 +55,7 @@
                         <input type="radio" name="gender" value="3" {{ old('gender') == 3 ? 'checked' : '' }}> その他
                     </label>
                 </div>
+                <!-- エラーメッセージ -->
                 <div class="form__error">
                     @error('gender')
                     {{ $message }}
@@ -72,6 +74,7 @@
                 <div class="form__input--text">
                     <input type="email" name="email" placeholder="例: test@example.com" value="{{ old('email') }}">
                 </div>
+                <!-- エラーメッセージ -->
                 <div class="form__error">
                     @error('email')
                     {{ $message }}
@@ -99,10 +102,30 @@
                     <!-- 5678部分 -->
                     <input type="tel" name="tel_end" placeholder="5678" value="{{ old('tel_end') }}">
                 </div>
+                <!-- エラーメッセージ -->
+                <!-- 各電話番号フィールドのエラーを統一＆重複したエラーメッセージを表示しない処理 -->
                 <div class="form__error">
-                    @error('tel')
-                    {{ $message }}
-                    @enderror
+                    <!-- 表示されたエラーメッセージを記録するための空の配列を用意 -->
+                    @php
+                    $messages = [];
+                    @endphp
+
+                    <!-- 各電話番号フィールドにエラーがある場合処理 -->
+                    @foreach (['tel_area', 'tel_number', 'tel_end'] as $field)
+                    @if ($errors->has($field))
+                    <!-- 重複したメッセージを表示しない -->
+                    @foreach ($errors->get($field) as $error)
+                    @if (!in_array($error, $messages))
+                    <!-- エラーメッセージを表示 -->
+                    {{ $error }}
+                    <!-- 表示したエラーメッセージを$messages配列に追加 -->
+                    @php
+                    $messages[] = $error;
+                    @endphp
+                    @endif
+                    @endforeach
+                    @endif
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -117,6 +140,7 @@
                 <div class="form__input--text">
                     <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}">
                 </div>
+                <!-- エラーメッセージ -->
                 <div class="form__error">
                     @error('address')
                     {{ $message }}
@@ -134,6 +158,7 @@
                 <div class="form__input--text">
                     <input type="text" name="building" placeholder="例: 千駄ヶ谷マンション101" value="{{ old('building') }}">
                 </div>
+                <!-- エラーメッセージ -->
                 <div class="form__error">
                     @error('building')
                     {{ $message }}
@@ -158,6 +183,7 @@
                     </select>
                     <span class="form__select-arrow"></span>
                 </div>
+                <!-- エラーメッセージ -->
                 <div class="form__error">
                     @error('category_id')
                     {{ $message }}
@@ -176,6 +202,7 @@
                 <div class="form__input--textarea">
                     <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                 </div>
+                <!-- エラーメッセージ -->
                 <div class="form__error">
                     @error('detail')
                     {{ $message }}

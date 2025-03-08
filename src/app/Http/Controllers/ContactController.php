@@ -22,7 +22,6 @@ class ContactController extends Controller
     {
         $contact = $request->only(['category_id','first_name','last_name','gender','email', 'tel_area', 'tel_number', 'tel_end', 'address', 'building', 'detail']);
         $category = Category::find($contact['category_id']);
-        $contact['tel'] = $contact['tel_area'] . '' . $contact['tel_number'] . '' . $contact['tel_end'];
 
         return view('confirm', compact('contact', 'category'));
     }

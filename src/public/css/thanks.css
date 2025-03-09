@@ -1,0 +1,56 @@
+/* サンクスコンテンツ */
+.thanks__content {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+/* 背景 */
+.thanks__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.1;
+}
+
+.background-text {
+    position: absolute;
+    font-size: 280px;
+    color: rgba(139, 121, 105, 0.5);
+}
+
+/* メッセージ */
+.thanks__heading h2 {
+    position: relative;
+    z-index: 1;
+    margin-top: 50px;
+    width: 510px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #8B7969;
+}
+
+/* HOMEボタン */
+.home-button {
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.home-button__submit {
+    display: inline-block;
+    padding: 10px 40px;
+    width: 140px;
+    background-color: #82756A;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -20,4 +20,6 @@ Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'store']);
 
 Route::get('/register', [AuthController::class, 'index']);
+Route::post('/register', [AuthController::class, 'store']);
 Route::get('/login', [AuthController::class, 'login']);
+

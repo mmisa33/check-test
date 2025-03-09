@@ -11,18 +11,18 @@ body {
     background: #F1ECE7;
 }
 
-.register-form__content {
+.login-form__content {
     margin: 0 auto;
     padding: 30px 15px;
     max-width: 1512px;
 }
 
 /* ページタイトル */
-.contact-form__heading {
+.login-form__heading {
     margin-bottom: 50px;
 }
 
-.register-form__heading h2 {
+.login-form__heading h2 {
     text-align: center;
     color: #8B7969;
     font-weight: 300;
@@ -31,9 +31,9 @@ body {
 
 /* フォーム全体 */
 .form {
-    margin: 60px auto ;
+    margin: 60px auto;
     width: 50%;
-    padding: 50px;
+    padding: 80px 50px;
     background-color: white;
     border: 1px solid #C5B9B0;
     border-radius: 10px;
@@ -70,21 +70,15 @@ body {
     color: #8B7969;
 }
 
-/* エラー */
-.form__error {
-    padding: 5px 0px;
-    color: #ff0000;
-}
-
 /* 送信ボタン */
 .form__button {
-    margin-top: 50px;
+    margin-top: 60px;
     text-align: center;
 }
 
 .form__button-submit {
     padding: 10px;
-    width: 120px;
+    width: 160px;
     height: 45px;
     background: #82756A;
     border: none;

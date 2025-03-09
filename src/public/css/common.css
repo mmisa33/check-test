@@ -9,7 +9,6 @@ body {
 .header {
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: white;
     border-bottom: 1px solid #E0DFDE;
 }
@@ -17,13 +16,49 @@ body {
 /* ヘッダー内コンテナ */
 .header__inner {
     max-width: 1512px;
-    padding: 20px 15px;
+    width: 100%;
+    height: 120px;
+    padding: 40px 15px;
     margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* ヘッダーロゴ */
+/* サイトタイトル */
 .header__logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header__logo-link {
     font-size: 40px;
     color: #8B7969;
     text-decoration: none;
+}
+
+/* ナビボタン */
+.header__nav {
+    width: 100px;
+    height: 35px;
+    margin-left: auto;
+    background-color: #F0F0F099;
+    border: 1px solid #D9C6B5;
+    text-align: center;
+}
+
+.header__nav-button {
+    font-size: 20px;
+    line-height: 35px;
+    color: #D9C6B5;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* login, register, adminページ以外では非表示 */
+body:not(.login):not(.register):not(.admin) .header__nav {
+    display: none;
 }

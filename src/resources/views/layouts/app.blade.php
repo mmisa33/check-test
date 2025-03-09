@@ -13,11 +13,31 @@
     @yield('css')
 </head>
 
-<body>
+<body class="{{ Route::currentRouteName() }}">
     <!-- 共通ヘッダー -->
     <header class="header">
         <div class="header__inner">
-            <a class="header__logo" href="/">FashionablyLate</a>
+            <!-- サイトタイトル -->
+            <div class="header__logo">
+                <a class="header__logo-link" href="/">FashionablyLate</a>
+            </div>
+
+            <!-- ナビボタン  -->
+            <div class="header__nav">
+                <!-- ログインページには登録ボタンを表示する -->
+                @if(Route::currentRouteName() == 'login')
+                <a class="header__nav-button" href="/register">register</a>
+                <!-- 登録ページにはログインボタンを表示する -->
+                @elseif(Route::currentRouteName() == 'register')
+                <a class="header__nav-button" href="/login">login</a>
+                <!-- 管理画面にはログアウトボタンを表示する -->
+                @elseif(Route::currentRouteName() == 'admin')
+                <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                    @csrf
+                    <button type="submit" class="header__nav-button">logout</button>
+                </form>
+                @endif
+            </div>
         </div>
     </header>
 

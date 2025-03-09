@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 /*
 |---------------------------------------------------------------------------
@@ -29,3 +30,6 @@ Route::post('/register', [AuthController::class, 'register']);
 // ログイン画面
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+
+//管理画面
+Route::get('/admin', [AdminController::class, 'index']);

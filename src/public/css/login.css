@@ -70,6 +70,12 @@ body {
     color: #8B7969;
 }
 
+/* エラー */
+.form__error {
+    padding: 5px 0px;
+    color: #ff0000;
+}
+
 /* 送信ボタン */
 .form__button {
     margin-top: 60px;

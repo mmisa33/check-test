@@ -5,9 +5,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
 
 /*
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
@@ -20,9 +20,12 @@ Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'store']);
 
-// ユーザー登録
-Route::get('/register', [AuthController::class, 'index']);
-Route::post('/register', [AuthController::class, 'store']);
 
+// Fortifyのデフォルト設定からリダイレクト先の変更を加えるため作成
+// ユーザー登録画面
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
 
-
+// ログイン画面
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);

@@ -7,7 +7,7 @@
 
 /* ページタイトル */
 .admin-contact__heading {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .admin-contact__heading h2 {
@@ -19,7 +19,7 @@
 
 /* 検索フォーム */
 .admin-contact__search {
-    margin: 0 auto 30px;
+    margin: 0 auto 25px;
     padding: 10px;
     width: 80%;
 }
@@ -129,10 +129,11 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 /* 管理画面操作機能全体 */
 .admin-contact__actions {
-    margin: 0px auto;
-    padding: 10px;
+    margin: 15px auto;
+    padding: 0 10px;
     width: 80%;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
 }
@@ -151,14 +152,21 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 /* ページネーション */
-/* ページネーションのリンク色 */
+.pagination {
+    height: 30px;
+}
+
+/* ページネーションのリンク */
 .pagination .page-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
     font-size: 18px;
     color: #8B7969;
     text-decoration: none;
 }
 
-/* アクティブページのリンク色 */
+/* アクティブページのリンク */
 .pagination .page-item.active .page-link {
     background-color: #8B7969;
     border: 1px solid #8B7969;
@@ -166,22 +174,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
     color: white;
 }
 
-/* ホバー時のリンク色 */
+/* ホバー時のリンク */
 .pagination .page-link:hover {
     background-color: #E1DBD699;
 }
 
 /* 非アクティブページの背景色 */
-.pagination .page-item {
-    background-color: white;
-}
-
-/* 前へ（Previous）ボタン */
-.pagination .page-item.disabled .page-link {
-    background-color: white;
-}
-
-/* 次へ（Next）ボタン */
+.pagination .page-item,
 .pagination .page-item.disabled .page-link {
     background-color: white;
 }

@@ -33,3 +33,5 @@ Route::post('/login', [AuthController::class, 'login']);
 
 //管理画面
 Route::get('/admin', [AdminController::class, 'index']);
+
+Route::get('/contacts/export', [ContactController::class, 'export'])->name('contacts.export');

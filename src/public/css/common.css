@@ -1,5 +1,5 @@
 /* フォント設定 */
-body {
+* {
     font-family: "Inika", "Arial", "Helvetica", "BIZ UDPゴシック", sans-serif;
     font-weight: 400;
     font-style: normal;

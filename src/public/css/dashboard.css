@@ -1,0 +1,258 @@
+/* ページ全体 */
+.admin-contact__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1512px;
+}
+
+/* ページタイトル */
+.admin-contact__heading {
+    margin-bottom: 30px;
+}
+
+.admin-contact__heading h2 {
+    text-align: center;
+    color: #8B7969;
+    font-weight: 300;
+    font-size: 35px;
+}
+
+/* 検索フォーム */
+.admin-contact__search {
+    margin: 0 auto 30px;
+    padding: 10px;
+    width: 80%;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.search-form__item,search-form__button {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: #F4F4F4;
+    border: 1px solid #E3DED9;
+}
+
+.search-form__item:first-of-type {
+    background-color: #FBFBFB;
+}
+
+.search-form__item:nth-of-type(5),
+.search-form__item:nth-of-type(6) {
+    border: none;
+}
+
+/* キーワード検索 */
+.search-form__item--keyword {
+    width: 350px;
+    background-color: #FBFBFB;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    color: #8B7969;
+}
+
+/* セレクトフォーム */
+.search-form__item--select {
+    appearance: none;
+    position: relative;
+    padding: 0 20px;
+    background-color: #F4F4F4;
+    border: none;
+    font-size: 17px;
+    color: #8B7969;
+    cursor: pointer;
+}
+
+/* セレクトボタン */
+.search-form__select-wrapper {
+    position: relative;
+}
+
+.search-form__select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 15px solid #E0DFDE;
+    cursor: pointer;
+}
+
+/* 年月日 */
+.search-form__item--date {
+    width: 150px;
+}
+
+/* カレンダーアイコン非表示 */
+input[type="date"] {
+    position: relative;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* 検索ボタン */
+.search-form__button--search {
+    padding: 10px;
+    width: 100px;
+    height: 50px;
+    background: #82756A;
+    border: none;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* リセットボタン */
+.search-form__button--reset {
+    padding: 10px;
+    width: 100px;
+    height: 50px;
+    background: #D9C6B5;
+    border: none;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 管理画面操作機能全体 */
+.admin-table__actions {
+    margin: 0px auto;
+    padding: 10px;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* エクスポートボタン */
+.export-btn__submit {
+    display: inline-block;
+    width: 150px;
+    padding: 8px 20px;
+    font-size: 18px;
+    text-align: center;
+    color: #8B7969;
+    text-decoration: none;
+    cursor: pointer;
+    background:#E1DBD699;
+}
+
+/* ページネーション */
+/* ページネーションのリンク色 */
+.pagination .page-link {
+    font-size: 18px;
+    color: #8B7969;
+    text-decoration: none;
+}
+
+/* アクティブページのリンク色 */
+.pagination .page-item.active .page-link {
+    background-color: #8B7969;
+    border: 1px solid #8B7969;
+    font-size: 18px;
+    color: white;
+}
+
+/* ホバー時のリンク色 */
+.pagination .page-link:hover {
+    background-color: #E1DBD699;
+}
+
+/* 非アクティブページの背景色 */
+.pagination .page-item {
+    background-color: white;
+}
+
+/* 前へ（Previous）ボタン */
+.pagination .page-item.disabled .page-link {
+    background-color: white;
+}
+
+/* 次へ（Next）ボタン */
+.pagination .page-item.disabled .page-link {
+    background-color: white;
+}
+
+/* 問い合わせテーブル全体 */
+.contact-list {
+    margin: 0px auto;
+    padding: 10px;
+    width: 80%;
+}
+
+.contact-list__inner {
+    width: 100%;
+}
+
+.contact-list__row {
+    width: 100%;
+    border: 1px solid #E0DFDE;
+}
+
+/* 問い合わせテーブルヘッダー */
+.contact-list__header {
+    padding: 10px 0 10px 60px;
+    height: 60px;
+    background-color: #8B7969;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    font-weight:700;
+    color: #fff;
+}
+
+/* 問い合わせ一覧 */
+.contact-list__data {
+    padding: 25px 0 25px 60px;
+    text-align: left;
+    font-size: 18px;
+    color: #8B7969;
+}
+
+/* 詳細ボタン */
+.contact-detail__button {
+    margin-right: 40px;
+    width: 75px;
+    height: 40px;
+    background: #F4F4F44D;
+    border: 1px solid #D9C6B5;
+    font-size: 18px;
+    color: #D9C6B5;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

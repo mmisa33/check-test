@@ -68,10 +68,10 @@
     </div>
 
     <!-- 管理画面操作機能 -->
-    <div class="admin-table__actions">
+    <div class="admin-contact__actions">
         <!-- エクスポートボタン -->
-        <div class="export-btn">
-            <a href="{{ route('contacts.export') }}" class="export-btn__submit">エクスポート</a>
+        <div class="export-button">
+            <a href="{{ route('contacts.export') }}" class="export-button__submit">エクスポート</a>
         </div>
         <!-- ページネーションリンク -->
         <div class="pagination">

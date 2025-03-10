@@ -50,9 +50,10 @@
 /* キーワード検索 */
 .search-form__item--keyword {
     width: 350px;
+    padding: 0 20px;
     background-color: #FBFBFB;
     border: none;
-    text-align: center;
+    text-align: left;
     font-size: 14px;
     color: #8B7969;
 }

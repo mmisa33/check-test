@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ContactModal extends Component
 {
-    public $showModal = true;
+    public $showModal = false;
 
     public function render()
     {

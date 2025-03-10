@@ -5,8 +5,6 @@
 @endsection
 
 @section('content')
-<!-- Livewireモーダルコンポーネント -->
-@livewire('contact-modal')
 <div class="admin-contact__content">
     <!-- ページタイトル -->
     <div class="admin-contact__heading">
@@ -15,7 +13,7 @@
 
     <!-- 検索フォーム -->
     <div class="admin-contact__search">
-        <form class="search-form" action="/admin.contact/search" method="GET">
+        <form class="search-form" action="/admin/search" method="GET">
             @csrf
             <!-- キーワード（名前、メールアドレス） -->
             <div class="search-form__item">
@@ -27,10 +25,10 @@
                 <div class="search-form__select-wrapper">
                     <select class="search-form__item--select" name="gender">
                         <option value="">性別</option>
+                        <option value="all" {{ request('gender') == 'all' ? 'selected' : '' }}>全て</option>
                         <option value="1" {{ request('gender') == '1' ? 'selected' : '' }}>男性</option>
                         <option value="2" {{ request('gender') == '2' ? 'selected' : '' }}>女性</option>
                         <option value="3" {{ request('gender') == '3' ? 'selected' : '' }}>その他</option>
-                        <option value="all" {{ request('gender') == 'all' ? 'selected' : '' }}>全て</option>
                     </select>
                     <span class="search-form__select-arrow"></span>
                 </div>
@@ -64,7 +62,7 @@
 
             <!-- リセットボタン -->
             <div class="search-form__button">
-                <button class="search-form__button--reset" type="reset" class="admin-contact__reset-btn">リセット</button>
+                <button class="search-form__button--reset" type="button" onclick="resetForm()">リセット</button>
             </div>
         </form>
     </div>
@@ -113,15 +111,22 @@
                 <td class="contact-list__data">
                     <!-- 詳細ボタン -->
                     <button class="contact-detail__button" type="button" wire:click="openModal()">詳細</button>
+                    <!-- Livewireモーダルコンポーネント -->
+                    @livewire('contact-modal')
                 </td>
             </tr>
             @endforeach
         </table>
     </div>
 </div>
-<!-- Bootstrap CSS -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap Bundle with Popper -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+<!-- 検索後にリセットボタンを押したら初期状態に戻す -->
+<script>
+    function resetForm() {
+        document.querySelector('.search-form').reset();
+
+        window.location.href = window.location.pathname;
+    }
+</script>
+
 @endsection

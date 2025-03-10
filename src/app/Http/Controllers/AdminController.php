@@ -19,6 +19,21 @@ class AdminController extends Controller
         return view('admin', compact('contacts', 'categories'));
     }
 
+    // 検索機能
+    public function search(Request $request)
+    {
+        $contacts = Contact::query()
+            ->categorySearch($request->category_id)
+            ->keywordSearch($request->keyword)
+            ->genderSearch($request->gender)
+            ->dateSearch($request->date)
+            ->paginate(7);
+
+        $categories = Category::all();
+
+        return view('admin', compact('contacts', 'categories'));
+    }
+
     public function export()
     {
         $contacts = Contact::all();

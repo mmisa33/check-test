@@ -11,11 +11,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<!-- Livewire Styles -->
+@livewireStyles
 
-    <!-- Livewire Styles -->
-    @livewireStyles
-
-    @yield('css')
+@yield('css')
 </head>
 
 <body class="{{ Route::currentRouteName() }} font-sans text-gray-900 antialiased">

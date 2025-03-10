@@ -84,7 +84,7 @@
     <div class="contact-list">
         <table class="contact-list__inner">
             <!-- ヘッダー -->
-            <tr class="admin-table__row">
+            <tr class="contact-list__row">
                 <th class="contact-list__header">
                     <span class="admin-table__header-span">お名前</span>
                 </th>
@@ -98,7 +98,7 @@
                     <span class="admin-table__header-span">お問い合わせの種類</span>
                 </th>
                 <th class="contact-list__header">
-                    <span class="admin-table__header-span"></span>
+                    <span class="contact-list__header-span"></span>
                 </th>
             </tr>
 

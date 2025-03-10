@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -11,10 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Livewire Styles -->
+    @livewireStyles
+
     @yield('css')
 </head>
 
-<body class="{{ Route::currentRouteName() }}">
+<body class="{{ Route::currentRouteName() }} font-sans text-gray-900 antialiased">
     <!-- 共通ヘッダー -->
     <header class="header">
         <div class="header__inner">
@@ -46,6 +50,9 @@
     <main>
         @yield('content')
     </main>
+
+    <!-- Livewire Scripts -->
+    @livewireScripts
 </body>
 
 </html>

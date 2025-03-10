@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+<!-- Livewireモーダルコンポーネント -->
+@livewire('contact-modal')
 <div class="admin-contact__content">
     <!-- ページタイトル -->
     <div class="admin-contact__heading">
@@ -79,7 +81,6 @@
         </div>
     </div>
 
-
     <!-- 問い合わせテーブル -->
     <div class="contact-list">
         <table class="contact-list__inner">
@@ -111,11 +112,16 @@
                 <td class="contact-list__data">{{ $contact->category->content }}</td>
                 <td class="contact-list__data">
                     <!-- 詳細ボタン -->
-                    <button class="contact-detail__button" onclick="">詳細</button>
+                    <button class="contact-detail__button" type="button" wire:click="openModal()">詳細</button>
                 </td>
             </tr>
             @endforeach
         </table>
     </div>
 </div>
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 @endsection

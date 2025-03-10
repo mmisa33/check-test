@@ -17,7 +17,7 @@
 .header__inner {
     max-width: 1512px;
     width: 100%;
-    height: 120px;
+    height: 100px;
     padding: 40px 15px;
     margin: 0 auto;
     position: relative;
@@ -50,9 +50,20 @@
     text-align: center;
 }
 
-.header__nav-button {
+.nav__button--register,
+.nav__button--login {
     font-size: 20px;
-    line-height: 35px;
+    color: #D9C6B5;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav__button--logout {
+    appearance: none;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
     color: #D9C6B5;
     text-decoration: none;
     cursor: pointer;

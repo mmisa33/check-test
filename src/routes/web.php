@@ -32,6 +32,6 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
 //管理画面
-Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 Route::get('/contacts/export', [ContactController::class, 'export'])->name('contacts.export');

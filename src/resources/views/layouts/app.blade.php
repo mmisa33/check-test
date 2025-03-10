@@ -27,15 +27,15 @@
             <div class="header__nav">
                 <!-- ログインページには登録ボタンを表示する -->
                 @if(Route::currentRouteName() == 'login')
-                <a class="header__nav-button" href="/register">register</a>
+                <a class="nav__button--register" href="/register">register</a>
                 <!-- 登録ページにはログインボタンを表示する -->
                 @elseif(Route::currentRouteName() == 'register')
-                <a class="header__nav-button" href="/login">login</a>
+                <a class="nav__button--login" href="/login">login</a>
                 <!-- 管理画面にはログアウトボタンを表示する -->
                 @elseif(Route::currentRouteName() == 'admin')
                 <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                     @csrf
-                    <button type="submit" class="header__nav-button">logout</button>
+                    <button type="submit" class="nav__button--logout">logout</button>
                 </form>
                 @endif
             </div>

@@ -16,7 +16,7 @@ class AdminController extends Controller
 
         $contacts = Contact::paginate(7);
 
-        return view('admin.dashboard', compact('contacts', 'categories'));
+        return view('admin', compact('contacts', 'categories'));
     }
 
     public function export()

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    @livewireStyles
 </head>
-<!-- Livewire Styles -->
-@livewireStyles
 
 @yield('css')
 </head>
@@ -51,7 +50,6 @@
         @yield('content')
     </main>
 
-    <!-- Livewire Scripts -->
     @livewireScripts
 </body>
 

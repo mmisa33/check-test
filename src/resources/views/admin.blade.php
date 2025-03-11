@@ -109,10 +109,8 @@
                 <td class="contact-list__data">{{ $contact->email }}</td>
                 <td class="contact-list__data">{{ $contact->category->content }}</td>
                 <td class="contact-list__data">
-                    {{--  詳細ボタン  --}}
-                    <button class="contact-detail__button" type="button" wire:click="openModal()">詳細</button>
-                    {{--  Livewireモーダルコンポーネント  --}}
-                    @livewire('contact-modal')
+                    {{--  モーダルで詳細表示  --}}
+                    @livewire('modal', ['contactId' => $contact->id], key($contact->id))
                 </td>
             </tr>
             @endforeach

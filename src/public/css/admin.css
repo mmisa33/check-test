@@ -237,18 +237,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
     color: #8B7969;
 }
 
-/* 詳細ボタン */
-.contact-detail__button {
-    margin-right: 40px;
-    width: 75px;
-    height: 40px;
-    background: #F4F4F44D;
-    border: 1px solid #D9C6B5;
-    font-size: 18px;
-    color: #D9C6B5;
-    cursor: pointer;
-}
-
 
 
 

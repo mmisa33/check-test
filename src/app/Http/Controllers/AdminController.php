@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Contact;
 use App\Models\Category;
 
@@ -29,13 +30,24 @@ class AdminController extends Controller
 
         $categories = Category::all();
 
+        // セッションで検索結果を保存
+        Session::put('search_params', $request->all());
+
         return view('admin', compact('contacts', 'categories'));
     }
 
     // CSVエクスポート機能
     public function export()
     {
-        $contacts = Contact::all();
+        // セッションの保存内容を呼び出し
+        $searchParams = Session::get('search_params', []);
+
+        $contacts = Contact::query()
+            ->categorySearch($searchParams['category_id'] ?? null)
+            ->keywordSearch($searchParams['keyword'] ?? null)
+            ->genderSearch($searchParams['gender'] ?? null)
+            ->dateSearch($searchParams['date'] ?? null)
+            ->get();
 
         // CSVヘッダー
         $headers = ['苗字', '名前', '性別', 'メールアドレス', '電話番号', '住所', '建物名', 'お問い合わせの種類', 'お問い合わせ内容'];
@@ -47,10 +59,9 @@ class AdminController extends Controller
         header('Content-Disposition: attachment;filename="contacts.csv"');
         header('Cache-Control: max-age=0');
 
-        // ヘッダーをCSVに書き込む
         fputcsv($handle, $headers);
 
-        // 絞り込んだ連絡先をCSVに書き込む
+        // CSV記載内容
         foreach ($contacts as $contact) {
             fputcsv($handle, [
                 strip_tags($contact->last_name),

@@ -34,4 +34,4 @@ Route::post('/login', [AuthController::class, 'login']);
 //管理画面
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 Route::get('/admin/search', [AdminController::class, 'search']);
-Route::get('/contacts/export', [ContactController::class, 'export'])->name('contacts.export');
+Route::get('/admin/export', [AdminController::class, 'export']);

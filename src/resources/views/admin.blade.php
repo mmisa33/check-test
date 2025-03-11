@@ -17,7 +17,7 @@
             @csrf
             <!-- キーワード（名前、メールアドレス） -->
             <div class="search-form__item">
-                <input class="search-form__item--keyword" type="keyword" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('keyword') }}">
+                <input class="search-form__item--keyword" type="keyword" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('keyword', request('keyword'))  }}">
             </div>
 
             <!-- 性別 -->
@@ -40,7 +40,7 @@
                     <select class="search-form__item--select" name="category_id">
                         <option value="">お問い合わせの種類</option>
                         @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category['content'] }}</option>
+                        <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>{{ $category['content'] }}</option>
                         @endforeach
                     </select>
                     <span class="search-form__select-arrow"></span>
@@ -50,7 +50,7 @@
             <!-- 年月日 -->
             <div class="search-form__item">
                 <div class="search-form__select-wrapper">
-                    <input class="search-form__item--select search-form__item--date" type="date" name="date" value="年/月/日">
+                    <input class="search-form__item--select search-form__item--date" type="date" name="date" value="{{ old('date', request('date')) }}">
                     <span class="search-form__select-arrow"></span>
                 </div>
             </div>
@@ -71,7 +71,7 @@
     <div class="admin-contact__actions">
         <!-- エクスポートボタン -->
         <div class="export-button">
-            <a href="{{ route('contacts.export') }}" class="export-button__submit">エクスポート</a>
+            <button id="export-button" class="export-button__submit">エクスポート</button>
         </div>
         <!-- ページネーションリンク -->
         <div class="pagination">
@@ -120,13 +120,18 @@
     </div>
 </div>
 
-<!-- 検索後にリセットボタンを押したら初期状態に戻す -->
+<!-- 機能追加用のJavaScript -->
 <script>
+    //検索後にリセットボタンを押したら初期状態に戻す
     function resetForm() {
         document.querySelector('.search-form').reset();
-
         window.location.href = window.location.pathname;
     }
+
+    //ボタンがクリックされた時にエクスポートを実行
+    document.getElementById('export-button').addEventListener('click', function() {
+        window.location.href = '/admin/export';
+    });
 </script>
 
 @endsection

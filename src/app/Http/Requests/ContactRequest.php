@@ -50,8 +50,8 @@ class ContactRequest extends FormRequest
     public function messages()
     {
         return [
-            'first_name.required' => '姓を入力してください',
-            'last_name.required' => '名を入力してください',
+            'first_name.required' => '名を入力してください',
+            'last_name.required' => '姓を入力してください',
             'gender.required' => '性別を選択してください',
             'email.required' => 'メールアドレスを入力してください',
             'tel_area.required' => '電話番号を入力してください',

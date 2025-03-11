@@ -12,31 +12,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inika&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-{{--  Livewire Styles  --}}
+<!-- Livewire Styles -->
 @livewireStyles
 
 @yield('css')
 </head>
 
-<body class="{{ Route::currentRouteName() }}{{ request()->is('admin*') ? 'admin' : '' }}">
-    {{--  共通ヘッダー  --}}
+<body class="{{ Route::currentRouteName() }} {{ request()->is('admin*') ? 'admin' : '' }}">
+    <!-- 共通ヘッダー -->
     <header class="header">
         <div class="header__inner">
-            {{--  サイトタイトル  --}}
+            <!-- サイトタイトル -->
             <div class="header__logo">
                 <a class="header__logo-link" href="/">FashionablyLate</a>
             </div>
 
-            {{--  ナビボタン   --}}
+            <!-- ナビボタン  -->
             <div class="header__nav">
-                {{--  ログインページには登録ボタンを表示する  --}}
+                <!-- ログインページには登録ボタンを表示する -->
                 @if(Route::currentRouteName() == 'login')
                 <a class="nav__button--register" href="/register">register</a>
-                {{--  登録ページにはログインボタンを表示する  --}}
+                <!-- 登録ページにはログインボタンを表示する -->
                 @elseif(Route::currentRouteName() == 'register')
                 <a class="nav__button--login" href="/login">login</a>
-                {{--  管理画面にはログアウトボタンを表示する  --}}
-                @elseif(request()->is('admin*') && Auth::check())
+                <!-- 管理画面にはログアウトボタンを表示する -->
+                @elseif(Auth::check())
                 <form action="/logout" method="POST" style="display:inline;">
                     @csrf
                     <button type="submit" class="nav__button--logout">logout</button>
@@ -46,12 +46,12 @@
         </div>
     </header>
 
-    {{--  メインコンテンツ  --}}
+    <!-- メインコンテンツ -->
     <main>
         @yield('content')
     </main>
 
-    {{--  Livewire Scripts  --}}
+    <!-- Livewire Scripts -->
     @livewireScripts
 </body>
 

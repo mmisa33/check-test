@@ -178,7 +178,7 @@
                     <select class="form__select" name="category_id">
                         <option value="">選択してください</option>
                         @foreach ($categories as $category)
-                        <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+                        <option value="{{ $category['id'] }}" @if (old('category_id') == $category['id']) selected @endif>{{ $category['content'] }}</option>
                         @endforeach
                     </select>
                     <span class="form__select-arrow"></span>

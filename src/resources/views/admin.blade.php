@@ -75,7 +75,7 @@
         </div>
         <!-- ページネーションリンク -->
         <div class="pagination">
-            {{ $contacts->links() }}
+            {{ $contacts->appends(request()->query())->links() }}
         </div>
     </div>
 

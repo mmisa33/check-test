@@ -26,7 +26,8 @@ class AdminController extends Controller
             ->keywordSearch($request->keyword)
             ->genderSearch($request->gender)
             ->dateSearch($request->date)
-            ->paginate(7);
+            ->paginate(7)
+            ->appends($request->query());
 
         $categories = Category::all();
 

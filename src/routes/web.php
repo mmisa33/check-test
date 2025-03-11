@@ -35,3 +35,16 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 Route::get('/admin/search', [AdminController::class, 'search']);
 Route::get('/admin/export', [AdminController::class, 'export']);
+
+// 認証ミドルウェアを`admin` プレフィックス全てに適用
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    // 管理画面
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
+    // 検索
+    Route::get('/search', [AdminController::class, 'search']);
+    // エクスポート
+    Route::get('/export', [AdminController::class, 'export']);
+});
+
+// ログアウト機能
+Route::post('/logout', [AuthController::class, 'logout']);

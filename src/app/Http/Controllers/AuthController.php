@@ -22,7 +22,7 @@ class AuthController extends Controller
     {
         // バリデーション：フォームリクエスト（validation.php）に詳細記載
         $this->validate($request, [
-            'name' => ['required', 'string', 'max:255' ],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'max:255'],
         ]);
@@ -48,7 +48,6 @@ class AuthController extends Controller
     public function showLoginForm()
     {
         return view('auth.login');
-
     }
 
     // ログイン処理
@@ -56,7 +55,7 @@ class AuthController extends Controller
     {
         // バリデーション：フォームリクエスト（validation.php）に詳細記載
         $this->validate($request, [
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'max:255'],
             'password' => ['required'],
         ]);
 
@@ -68,5 +67,16 @@ class AuthController extends Controller
 
         // 失敗した場合、再ログイン画面を表示
         return back()->withInput();
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout(); // ログアウト
+
+        // セッションをクリアしてログインページにリダイレクト
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login'); // loginページへリダイレクト
     }
 }

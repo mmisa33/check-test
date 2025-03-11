@@ -164,7 +164,12 @@
 
 /* エラー */
 .form__error {
-    padding: 5px 0px;
+    display: flex;
+    justify-content: left;
+}
+
+.form__error span {
+    padding: 5px 20px 0 0;
     color: #ff0000;
 }
 

@@ -14,19 +14,19 @@
 </head>
 
 <body>
-    <!-- 背景 -->
+    {{--  背景  --}}
     <div class="thanks__background">
         <span class="background-text">Thank you</span>
     </div>
 
-    <!-- サンクスコンテンツ -->
+    {{--  サンクスコンテンツ  --}}
     <div class="thanks__content">
-        <!-- メッセージ -->
+        {{--  メッセージ  --}}
         <div class="thanks__heading">
             <h2>お問い合わせありがとうございました</h2>
         </div>
 
-        <!-- HOMEボタン -->
+        {{--  HOMEボタン  --}}
         <div class="home-button">
             <a href="/" class="home-button__submit">HOME</a>
         </div>

@@ -6,21 +6,21 @@
 
 @section('content')
 <div class="admin-contact__content">
-    <!-- ページタイトル -->
+    {{--  ページタイトル  --}}
     <div class="admin-contact__heading">
         <h2>Admin</h2>
     </div>
 
-    <!-- 検索フォーム -->
+    {{--  検索フォーム  --}}
     <div class="admin-contact__search">
         <form class="search-form" action="/admin/search" method="GET">
             @csrf
-            <!-- キーワード（名前、メールアドレス） -->
+            {{--  キーワード（名前、メールアドレス）  --}}
             <div class="search-form__item">
                 <input class="search-form__item--keyword" type="keyword" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('keyword', request('keyword'))  }}">
             </div>
 
-            <!-- 性別 -->
+            {{--  性別  --}}
             <div class="search-form__item">
                 <div class="search-form__select-wrapper">
                     <select class="search-form__item--select" name="gender">
@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <!-- 問い合わせ種類 -->
+            {{--  問い合わせ種類  --}}
             <div class="search-form__item">
                 <div class="search-form__select-wrapper">
                     <select class="search-form__item--select" name="category_id">
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <!-- 年月日 -->
+            {{--  年月日  --}}
             <div class="search-form__item">
                 <div class="search-form__select-wrapper">
                     <input class="search-form__item--select search-form__item--date" type="date" name="date" value="{{ old('date', request('date')) }}">
@@ -55,34 +55,34 @@
                 </div>
             </div>
 
-            <!-- 検索ボタン -->
+            {{--  検索ボタン  --}}
             <div class="search-form__button">
                 <button class="search-form__button--search" type="submit">検索</button>
             </div>
 
-            <!-- リセットボタン -->
+            {{--  リセットボタン  --}}
             <div class="search-form__button">
                 <button class="search-form__button--reset" type="button" onclick="resetForm()">リセット</button>
             </div>
         </form>
     </div>
 
-    <!-- 管理画面操作機能 -->
+    {{--  管理画面操作機能  --}}
     <div class="admin-contact__actions">
-        <!-- エクスポートボタン -->
+        {{--  エクスポートボタン  --}}
         <div class="export-button">
             <button id="export-button" class="export-button__submit">エクスポート</button>
         </div>
-        <!-- ページネーションリンク -->
+        {{--  ページネーションリンク  --}}
         <div class="pagination">
             {{ $contacts->appends(request()->query())->links() }}
         </div>
     </div>
 
-    <!-- 問い合わせテーブル -->
+    {{--  問い合わせテーブル  --}}
     <div class="contact-list">
         <table class="contact-list__inner">
-            <!-- ヘッダー -->
+            {{--  ヘッダー  --}}
             <tr class="contact-list__row">
                 <th class="contact-list__header">
                     <span class="admin-table__header-span">お名前</span>
@@ -101,7 +101,7 @@
                 </th>
             </tr>
 
-            <!-- 問い合わせ一覧 -->
+            {{--  問い合わせ一覧  --}}
             @foreach($contacts as $contact)
             <tr class="contact-list__row">
                 <td class="contact-list__data">{{ $contact->last_name }}&emsp;{{ $contact->first_name }}</td>
@@ -109,9 +109,9 @@
                 <td class="contact-list__data">{{ $contact->email }}</td>
                 <td class="contact-list__data">{{ $contact->category->content }}</td>
                 <td class="contact-list__data">
-                    <!-- 詳細ボタン -->
+                    {{--  詳細ボタン  --}}
                     <button class="contact-detail__button" type="button" wire:click="openModal()">詳細</button>
-                    <!-- Livewireモーダルコンポーネント -->
+                    {{--  Livewireモーダルコンポーネント  --}}
                     @livewire('contact-modal')
                 </td>
             </tr>
@@ -120,7 +120,7 @@
     </div>
 </div>
 
-<!-- 機能追加用のJavaScript -->
+{{--  機能追加用のJavaScript  --}}
 <script>
     //検索後にリセットボタンを押したら初期状態に戻す
     function resetForm() {

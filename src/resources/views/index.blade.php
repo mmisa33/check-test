@@ -6,15 +6,15 @@
 
 @section('content')
 <div class="contact-form__content">
-    <!-- ページタイトル -->
+    {{--  ページタイトル  --}}
     <div class="contact-form__heading">
         <h2>Contact</h2>
     </div>
 
-    <!-- 問い合わせフォーム -->
+    {{--  問い合わせフォーム  --}}
     <form class="form" action="/confirm" method="post">
         @csrf
-        <!-- 名前入力 -->
+        {{--  名前入力  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">お名前</span>
@@ -25,19 +25,19 @@
                     <input type="text" name="last_name" placeholder="例: 山田" value="{{ old('last_name') }}">
                     <input type="text" name="first_name" placeholder="例: 太郎" value="{{ old('first_name') }}">
                 </div>
-                <!-- エラーメッセージ -->
+                {{--  エラーメッセージ  --}}
                 <div class="form__error">
                     @error('last_name')
-                    {{ $message }}
+                    <span>{{ $message }}</span>
                     @enderror
                     @error('first_name')
-                    {{ $message }}
+                    <span>{{ $message }}</span>
                     @enderror
                 </div>
             </div>
         </div>
 
-        <!-- 性別選択 -->
+        {{--  性別選択  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">性別</span>
@@ -55,16 +55,16 @@
                         <input type="radio" name="gender" value="3" {{ old('gender') == 3 ? 'checked' : '' }}> その他
                     </label>
                 </div>
-                <!-- エラーメッセージ -->
+                {{--  エラーメッセージ  --}}
                 <div class="form__error">
                     @error('gender')
-                    {{ $message }}
+                    <span>{{ $message }}</span>
                     @enderror
                 </div>
             </div>
         </div>
 
-        <!-- メールアドレス入力 -->
+        {{--  メールアドレス入力  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">メールアドレス</span>
@@ -74,16 +74,16 @@
                 <div class="form__input--text">
                     <input type="email" name="email" placeholder="例: test@example.com" value="{{ old('email') }}">
                 </div>
-                <!-- エラーメッセージ -->
+                {{--  エラーメッセージ  --}}
                 <div class="form__error">
                     @error('email')
-                    {{ $message }}
+                    <span>{{ $message }}</span>
                     @enderror
                 </div>
             </div>
         </div>
 
-        <!-- 電話番号入力 -->
+        {{--  電話番号入力  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">電話番号</span>
@@ -91,34 +91,34 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text form__input--tel">
-                    <!-- 090部分 -->
+                    {{--  090部分  --}}
                     <input type="tel" name="tel_area" placeholder="090" value="{{ old('tel_area') }}">
-                    <span>-</span> <!-- ハイフン -->
+                    <span>-</span> {{--  ハイフン  --}}
 
-                    <!-- 1234部分 -->
+                    {{--  1234部分  --}}
                     <input type="tel" name="tel_number" placeholder="1234" value="{{ old('tel_number') }}">
-                    <span>-</span> <!-- ハイフン -->
+                    <span>-</span> {{--  ハイフン  --}}
 
-                    <!-- 5678部分 -->
+                    {{--  5678部分  --}}
                     <input type="tel" name="tel_end" placeholder="5678" value="{{ old('tel_end') }}">
                 </div>
-                <!-- エラーメッセージ -->
-                <!-- 各電話番号フィールドのエラーを統一＆重複したエラーメッセージを表示しない処理 -->
+                {{--  エラーメッセージ  --}}
+                {{--  各電話番号フィールドのエラーを統一＆重複したエラーメッセージを表示しない処理  --}}
                 <div class="form__error">
-                    <!-- 表示されたエラーメッセージを記録するための空の配列を用意 -->
+                    {{--  表示されたエラーメッセージを記録するための空の配列を用意  --}}
                     @php
                     $messages = [];
                     @endphp
 
-                    <!-- 各電話番号フィールドにエラーがある場合処理 -->
+                    {{--  各電話番号フィールドにエラーがある場合処理  --}}
                     @foreach (['tel_area', 'tel_number', 'tel_end'] as $field)
                     @if ($errors->has($field))
-                    <!-- 重複したメッセージを表示しない -->
+                    {{--  重複したメッセージを表示しない  --}}
                     @foreach ($errors->get($field) as $error)
                     @if (!in_array($error, $messages))
-                    <!-- エラーメッセージを表示 -->
-                    {{ $error }}
-                    <!-- 表示したエラーメッセージを$messages配列に追加 -->
+                    {{--  エラーメッセージを表示  --}}
+                    <span>{{ $error }}</span>
+                    {{--  表示したエラーメッセージを$messages配列に追加  --}}
                     @php
                     $messages[] = $error;
                     @endphp
@@ -130,7 +130,7 @@
             </div>
         </div>
 
-        <!-- 住所入力 -->
+        {{--  住所入力  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">住所</span>
@@ -140,16 +140,16 @@
                 <div class="form__input--text">
                     <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}">
                 </div>
-                <!-- エラーメッセージ -->
+                {{--  エラーメッセージ  --}}
                 <div class="form__error">
                     @error('address')
-                    {{ $message }}
+                    <span>{{ $message }}</span>
                     @enderror
                 </div>
             </div>
         </div>
 
-        <!-- 建物名入力 -->
+        {{--  建物名入力  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">建物名</span>
@@ -158,16 +158,16 @@
                 <div class="form__input--text">
                     <input type="text" name="building" placeholder="例: 千駄ヶ谷マンション101" value="{{ old('building') }}">
                 </div>
-                <!-- エラーメッセージ -->
+                {{--  エラーメッセージ  --}}
                 <div class="form__error">
                     @error('building')
-                    {{ $message }}
+                    <span>{{ $message }}</span>
                     @enderror
                 </div>
             </div>
         </div>
 
-        <!-- 問い合わせ種類選択 -->
+        {{--  問い合わせ種類選択  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">お問い合わせ種類</span>
@@ -183,16 +183,16 @@
                     </select>
                     <span class="form__select-arrow"></span>
                 </div>
-                <!-- エラーメッセージ -->
+                {{--  エラーメッセージ  --}}
                 <div class="form__error">
                     @error('category_id')
-                    {{ $message }}
+                    <span>{{ $message }}</span>
                     @enderror
                 </div>
             </div>
         </div>
 
-        <!-- 問い合わせ内容入力 -->
+        {{--  問い合わせ内容入力  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">お問い合わせ内容</span>
@@ -202,16 +202,16 @@
                 <div class="form__input--textarea">
                     <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                 </div>
-                <!-- エラーメッセージ -->
+                {{--  エラーメッセージ  --}}
                 <div class="form__error">
                     @error('detail')
-                    {{ $message }}
+                    <span>{{ $message }}</span>
                     @enderror
                 </div>
             </div>
         </div>
 
-        <!-- 送信ボタン -->
+        {{--  送信ボタン  --}}
         <div class="form__button">
             <button class="form__button-submit" type="submit">確認画面</button>
         </div>

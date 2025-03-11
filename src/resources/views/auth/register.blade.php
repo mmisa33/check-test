@@ -7,15 +7,15 @@
 
 @section('content')
 <div class="register-form__content">
-    <!-- ページタイトル -->
+    {{--  ページタイトル  --}}
     <div class="register-form__heading">
         <h2>Register</h2>
     </div>
 
-    <!-- ユーザー登録フォーム -->
+    {{--  ユーザー登録フォーム  --}}
     <form class="form" action="/register" method="post">
         @csrf
-        <!-- 名前入力 -->
+        {{--  名前入力  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">お名前</span>
@@ -24,7 +24,7 @@
                 <div class="form__input--text">
                     <input type="text" name="name" placeholder="例: 山田    太郎" value="{{ old('name') }}">
                 </div>
-                <!-- エラーメッセージ -->
+                {{--  エラーメッセージ  --}}
                 <div class="form__error">
                     @error('name')
                     {{ $message }}
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <!-- メールアドレス入力 -->
+        {{--  メールアドレス入力  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">メールアドレス</span>
@@ -42,7 +42,7 @@
                 <div class="form__input--text">
                     <input type="email" name="email" placeholder="例: test@example.com" value="{{ old('email') }}">
                 </div>
-                <!-- エラーメッセージ -->
+                {{--  エラーメッセージ  --}}
                 <div class="form__error">
                     @error('email')
                     {{ $message }}
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <!-- パスワード入力 -->
+        {{--  パスワード入力  --}}
         <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">パスワード</span>
@@ -60,7 +60,7 @@
                 <div class="form__input--text">
                     <input type="password" name="password" placeholder="例: coachtech1106">
                 </div>
-                <!-- エラーメッセージ -->
+                {{--  エラーメッセージ  --}}
                 <div class="form__error">
                     @error('password')
                     {{ $message }}
@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <!-- 登録ボタン -->
+        {{--  登録ボタン  --}}
         <div class="form__button">
             <button class="form__button-submit" type="submit">登録</button>
         </div>

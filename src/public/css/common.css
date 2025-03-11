@@ -32,9 +32,6 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-}
-
-.header__logo-link {
     font-size: 40px;
     color: #8B7969;
     text-decoration: none;

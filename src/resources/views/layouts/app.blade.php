@@ -23,7 +23,9 @@
     <header class="header">
         <div class="header__inner">
             {{--  サイトタイトル  --}}
-            <div class="header__logo">FashionablyLate</div>
+            <div class="header__logo">
+                <a class="header__logo-link" href="/">FashionablyLate</a>
+            </div>
 
             {{--  ナビボタン   --}}
             <div class="header__nav">

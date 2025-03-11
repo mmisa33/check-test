@@ -43,7 +43,7 @@
                 <tr class=" confirm-table__row">
                     <th class="confirm-table__header">メールアドレス</th>
                     <td class="confirm-table__text">
-                        <input type="email" name="email" value="{{ $contact['email'] }}" readonly>
+                        <input type="text" name="email" value="{{ $contact['email'] }}" readonly>
                         {{--  隠しフィールドで実際のデータを送信   --}}
                         <input type="hidden" name="email" value="{{ $contact['email'] }}">
                     </td>

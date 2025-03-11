@@ -18,7 +18,7 @@
 @yield('css')
 </head>
 
-<body class="{{ Route::currentRouteName() }} font-sans text-gray-900 antialiased">
+<body class="{{ Route::currentRouteName() }} {{ request()->is('admin*') ? 'admin' : '' }}">
     <!-- 共通ヘッダー -->
     <header class="header">
         <div class="header__inner">
@@ -36,7 +36,7 @@
                 @elseif(Route::currentRouteName() == 'register')
                 <a class="nav__button--login" href="/login">login</a>
                 <!-- 管理画面にはログアウトボタンを表示する -->
-                @elseif(Route::currentRouteName() == 'admin')
+                @elseif(request()->is('admin*'))
                 <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                     @csrf
                     <button type="submit" class="nav__button--logout">logout</button>

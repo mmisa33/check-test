@@ -20,8 +20,8 @@ class ContactFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'tel_area' => $this->faker->randomElement(['080', '090']), // 例: 090, 080
             'tel_number' => str_pad($this->faker->randomNumber(4, true), 4, '0', STR_PAD_LEFT), // 例: 1234
-            'tel_end' => str_pad($this->faker->randomNumber(4, true), 4, '0', STR_PAD_LEFT),// 例: 5678
-            'address' => $this->faker->streetAddress,
+            'tel_end' => str_pad($this->faker->randomNumber(4, true), 4, '0', STR_PAD_LEFT), // 例: 5678
+            'address' => $this->faker->prefecture . ' ' . $this->faker->city . ' ' . $this->faker->streetAddress,
             'building' => $this->faker->secondaryAddress,
             'detail' => $this->faker->realText(100),
         ];

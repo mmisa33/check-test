@@ -77,7 +77,6 @@ class AdminController extends Controller
             ]);
         }
 
-        // ストリームとしてCSVファイルを返す
         return response()->stream(
             function () use ($handle) {
                 fclose($handle);

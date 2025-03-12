@@ -26,7 +26,7 @@
     align-items: center;
 }
 
-/* サイトタイトル */
+/* サイトタイトル（positionでナビボタン表示時に完全センターに配置） */
 .header__logo {
     position: absolute;
     left: 50%;
@@ -59,12 +59,12 @@
 }
 
 .nav__button--logout {
-    appearance: none;
+    background-color: transparent;
     font-size: 20px;
+    color: #D9C6B5;
+    appearance: none;
     border: none;
     outline: none;
-    background-color: transparent;
-    color: #D9C6B5;
     text-decoration: none;
     cursor: pointer;
 }

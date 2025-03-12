@@ -7,20 +7,20 @@
 
 /* ページタイトル */
 .confirm__heading {
-    margin-bottom: 50px;
+    margin: 20px 0 50px;
 }
 
 .confirm__heading h2 {
     text-align: center;
-    color: #8B7969;
     font-weight: 300;
     font-size: 35px;
+    color: #8B7969;
 }
 
 /* テーブル全体 */
 .form {
     margin: 0 auto;
-    width: 60%;
+    width: 65%;
     text-align: left;
 }
 
@@ -38,8 +38,8 @@
     width: 30%;
     background-color: #BAA899;
     border-bottom: 1px solid #E0DFDE;
-    font-weight: 100;
-    font-size: 18px;
+    font-weight: normal;
+    font-size: 20px;
     color: #fff;
 }
 
@@ -49,21 +49,9 @@
     border-bottom: 1px solid #E0DFDE;
 }
 
-.confirm-table__text input {
-    width: 100%;
-    height: 30px;
-    outline: none;
-    border: none;
+.confirm-table__text span {
+    font-size: 20px;
     color: #8B7969;
-}
-
-.confirm-table__text textarea {
-    width: 100%;
-    height: 60px;
-    outline: none;
-    border: none;
-    color: #8B7969;
-    resize: none;
 }
 
 .confirm-table__row:last-child .confirm-table__header,
@@ -73,23 +61,22 @@
 
 /* ボタン全体 */
 .form__button {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     margin-top: 50px;
     width: 100%;
     padding-left: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 /* 送信ボタン */
 .form__button-submit {
-    margin-right: 3px;
     padding: 10px;
     width: 120px;
     height: 45px;
     background: #82756A;
     border: none;
-    font-size: 18px;
+    font-size: 20px;
     color: #fff;
     cursor: pointer;
     transform: translateX(-50%);
@@ -99,5 +86,10 @@
 .form__button-edit {
     font-size: 20px;
     color: #8B7969;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    background: none;
+    border: none;
     cursor: pointer;
 }

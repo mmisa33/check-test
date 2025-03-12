@@ -7,29 +7,29 @@
 
 /* ページタイトル */
 .contact-form__heading {
-    margin-bottom: 50px;
+    margin: 20px 0 50px;
 }
 
 .contact-form__heading h2 {
     text-align: center;
-    color: #8B7969;
     font-weight: 300;
     font-size: 35px;
+    color: #8B7969;
 }
 
 /* フォーム全体 */
 .form {
     margin: 0 auto;
-    width: 60%;
+    width: 65%;
     text-align: left;
 }
 
 .form__group {
+    width: 100%;
+    margin-bottom: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    width: 100%;
 }
 
 .form__group:nth-child(9) {
@@ -39,23 +39,23 @@
 /* フォームタイトル */
 .form__group-title {
     padding: 10px 0;
-    width: 30%;
+    width: 35%;
 }
 
 .form__label--item {
-    font-size: 18px;
+    font-size: 20px;
     color: #8B7969;
 }
 
 .form__label--required {
     margin-left: 2px;
-    font-size: 18px;
+    font-size: 20px;
     color: #FF9494;
 }
 
 /* フォーム入力全体 */
 .form__group-content {
-    width: 70%;
+    width: 65%;
 }
 
 .form__input--text input,
@@ -94,10 +94,10 @@
 }
 
 .form__input--radio label {
-    display: flex;
-    align-items: center;
     margin-right: 30px;
     padding: 0 20px;
+    display: flex;
+    align-items: center;
     gap: 8px;
     font-size: 18px;
     color: #8B7969;
@@ -131,6 +131,8 @@
 
 .form__input--tel span {
     margin: 0 15px;
+    font-size: 20px;
+    color: #8B7969;
 }
 
 /* セレクトボタン */
@@ -185,7 +187,7 @@
     height: 50px;
     background: #82756A;
     border: none;
-    font-size: 18px;
+    font-size: 20px;
     color: #fff;
     cursor: pointer;
 }

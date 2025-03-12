@@ -20,7 +20,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お名前</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="name" value="{{ $contact['last_name'] . '    ' . $contact['first_name'] }}" readonly>
+                        <span>{{ $contact['last_name'] . '    ' . $contact['first_name'] }}</span>
                         {{--  隠しフィールドで実際のデータを送信   --}}
                         <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}">
                         <input type="hidden" name="first_name" value="{{ $contact['first_name'] }}">
@@ -31,19 +31,17 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">性別</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="gender"
-                            value="{{ ['1' => '男性', '2' => '女性', '3' => 'その他'][$contact['gender']] }}"
-                            readonly>
+                        <span>{{ ['1' => '男性', '2' => '女性', '3' => 'その他'][$contact['gender']] }}</span>
                         {{--  隠しフィールドで実際のデータを送信   --}}
                         <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
                     </td>
                 </tr>
 
                 {{--  メールアドレス  --}}
-                <tr class=" confirm-table__row">
+                <tr class="confirm-table__row">
                     <th class="confirm-table__header">メールアドレス</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="email" value="{{ $contact['email'] }}" readonly>
+                        <span>{{ $contact['email'] }}</span>
                         {{--  隠しフィールドで実際のデータを送信   --}}
                         <input type="hidden" name="email" value="{{ $contact['email'] }}">
                     </td>
@@ -53,7 +51,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">電話番号</th>
                     <td class="confirm-table__text">
-                        <input type="tel" name="tel" value="{{ $contact['tel_area'] . '' . $contact['tel_number'] . '' . $contact['tel_end'] }}" readonly>
+                        <span>{{ $contact['tel_area'] . '' . $contact['tel_number'] . '' . $contact['tel_end'] }}</span>
                         {{--  隠しフィールドで実際のデータを送信  --}}
                         <input type="hidden" name="tel_area" value="{{ $contact['tel_area'] }}">
                         <input type="hidden" name="tel_number" value="{{ $contact['tel_number'] }}">
@@ -65,7 +63,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">住所</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="address" value="{{ $contact['address'] }}" readonly>
+                        <span>{{ $contact['address'] }}</span>
                         {{--  隠しフィールドで実際のデータを送信  --}}
                         <input type="hidden" name="address" value="{{ $contact['address'] }}">
                     </td>
@@ -75,7 +73,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">建物名</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="building" value="{{ $contact['building'] }}" readonly>
+                        <span>{{ $contact['building'] }}</span>
                         {{--  隠しフィールドで実際のデータを送信  --}}
                         <input type="hidden" name="building" value="{{ $contact['building'] }}">
                     </td>
@@ -85,7 +83,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お問い合わせの種類</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="category_id" value="{{ $category->content }}" readonly>
+                        <span>{{ $category->content }}</span>
                         {{--  隠しフィールドで実際のデータを送信  --}}
                         <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
                     </td>
@@ -95,7 +93,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お問い合わせ内容</th>
                     <td class="confirm-table__text">
-                        <textarea name="detail" readonly>{{ $contact['detail'] }}</textarea>
+                        <span>{{ $contact['detail'] }}</span>
                         {{--  隠しフィールドで実際のデータを送信  --}}
                         <input type="hidden" name="detail" value="{{ $contact['detail'] }}">
                     </td>
@@ -108,7 +106,7 @@
             {{--  送信  --}}
             <button class="form__button-submit" type="submit">送信</button>
             {{--  修正  --}}
-            <a class="form__button-edit" href="javascript:void(0);" onclick="event.preventDefault(); history.back();">修正</a>
+            <button class="form__button-edit" type="button" onclick="event.preventDefault(); history.back();">修正</button>
         </div>
     </form>
 </div>

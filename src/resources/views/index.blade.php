@@ -93,11 +93,13 @@
                 <div class="form__input--text form__input--tel">
                     {{--  090部分  --}}
                     <input type="tel" name="tel_area" placeholder="090" value="{{ old('tel_area') }}">
-                    <span>-</span> {{--  ハイフン  --}}
+                    {{--  ハイフン  --}}
+                    <span>-</span>
 
                     {{--  1234部分  --}}
                     <input type="tel" name="tel_number" placeholder="1234" value="{{ old('tel_number') }}">
-                    <span>-</span> {{--  ハイフン  --}}
+                    {{--  ハイフン  --}}
+                    <span>-</span>
 
                     {{--  5678部分  --}}
                     <input type="tel" name="tel_end" placeholder="5678" value="{{ old('tel_end') }}">
@@ -105,26 +107,16 @@
                 {{--  エラーメッセージ  --}}
                 {{--  各電話番号フィールドのエラーを統一＆重複したエラーメッセージを表示しない処理  --}}
                 <div class="form__error">
-                    {{--  表示されたエラーメッセージを記録するための空の配列を用意  --}}
                     @php
-                    $messages = [];
+                        $messages = [];
                     @endphp
-
-                    {{--  各電話番号フィールドにエラーがある場合処理  --}}
                     @foreach (['tel_area', 'tel_number', 'tel_end'] as $field)
-                    @if ($errors->has($field))
-                    {{--  重複したメッセージを表示しない  --}}
-                    @foreach ($errors->get($field) as $error)
-                    @if (!in_array($error, $messages))
-                    {{--  エラーメッセージを表示  --}}
-                    <span>{{ $error }}</span>
-                    {{--  表示したエラーメッセージを$messages配列に追加  --}}
-                    @php
-                    $messages[] = $error;
-                    @endphp
-                    @endif
-                    @endforeach
-                    @endif
+                        @foreach ($errors->get($field) as $error)
+                            @if (!isset($messages[$error]))
+                                <span>{{ $error }}</span>
+                                @php $messages[$error] = true; @endphp
+                            @endif
+                        @endforeach
                     @endforeach
                 </div>
             </div>
@@ -178,7 +170,7 @@
                     <select class="form__select" name="category_id">
                         <option value="">選択してください</option>
                         @foreach ($categories as $category)
-                        <option value="{{ $category['id'] }}" @if (old('category_id') == $category['id']) selected @endif>{{ $category['content'] }}</option>
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category['content'] }}</option>
                         @endforeach
                     </select>
                     <span class="form__select-arrow"></span>

@@ -74,7 +74,7 @@ return [
     |
     */
 
-    'home' => '/login',
+    'home' => '/admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -143,6 +143,7 @@ return [
     | these features or you can even remove all of these if you need to.
     |
     */
+
 
     'features' => [
         Features::registration(),

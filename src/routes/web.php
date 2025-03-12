@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 
 /*
 |---------------------------------------------------------------------------
@@ -21,30 +21,12 @@ Route::get('/', [ContactController::class, 'index']);    // 一覧ページ
 Route::post('/confirm', [ContactController::class, 'confirm']);    // 確認ページ
 Route::post('/thanks', [ContactController::class, 'store']);    // 送信完了ページ
 
-
-// Fortifyのデフォルト設定からリダイレクト先の変更を加えるため作成
-// ユーザー登録画面
-Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
-
-// ログイン画面
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-
-//管理画面
-Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-Route::get('/admin/search', [AdminController::class, 'search']);
-Route::get('/admin/export', [AdminController::class, 'export']);
-
-// 認証ミドルウェアを`admin` プレフィックス全てに適用
+// 認証ミドルウェアを`admin`プレフィックス全てに適用
 Route::prefix('admin')->middleware(['auth'])->group(function () {
-    // 管理画面
-    Route::get('/', [AdminController::class, 'index'])->name('admin');
-    // 検索
-    Route::get('/search', [AdminController::class, 'search']);
-    // エクスポート
-    Route::get('/export', [AdminController::class, 'export']);
+    Route::get('/', [AdminController::class, 'index'])->name('admin');    // 管理画面
+    Route::get('/search', [AdminController::class, 'search']);    // 検索
+    Route::get('/export', [AdminController::class, 'export']);    // エクスポート
 });
 
-// ログアウト機能
+// ログアウト処理
 Route::post('/logout', [AuthController::class, 'logout']);

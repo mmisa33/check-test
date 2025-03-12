@@ -10,8 +10,8 @@ body {
 }
 
 /* ページタイトル */
-.contact-form__heading {
-    margin-bottom: 50px;
+.register-form__heading {
+    margin: 20px 0 50px;
 }
 
 .register-form__heading h2 {
@@ -65,6 +65,7 @@ body {
 /* エラー */
 .form__error {
     padding: 5px 0px;
+
     color: #ff0000;
 }
 

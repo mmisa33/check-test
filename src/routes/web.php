@@ -17,9 +17,9 @@ use App\Http\Controllers\AdminController;
 */
 
 // 問い合わせ関連
-Route::get('/', [ContactController::class, 'index']);
-Route::post('/confirm', [ContactController::class, 'confirm']);
-Route::post('/thanks', [ContactController::class, 'store']);
+Route::get('/', [ContactController::class, 'index']);    // 一覧ページ
+Route::post('/confirm', [ContactController::class, 'confirm']);    // 確認ページ
+Route::post('/thanks', [ContactController::class, 'store']);    // 送信完了ページ
 
 
 // Fortifyのデフォルト設定からリダイレクト先の変更を加えるため作成

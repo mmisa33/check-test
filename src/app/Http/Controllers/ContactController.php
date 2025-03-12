@@ -26,7 +26,7 @@ class ContactController extends Controller
         return view('confirm', compact('contact', 'category'));
     }
 
-    // 入力したデータの保存
+    // 入力したお問い合わせデータの保存
     public function store(ContactRequest $request)
     {
         $contact = $request->only(['category_id', 'first_name', 'last_name', 'gender', 'email', 'tel_area', 'tel_number', 'tel_end', 'address', 'building', 'detail']);

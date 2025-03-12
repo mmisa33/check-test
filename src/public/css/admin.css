@@ -29,7 +29,8 @@
     justify-content: space-between;
 }
 
-.search-form__item,search-form__button {
+.search-form__item,
+.search-form__button {
     display: flex;
     align-items: center;
     height: 50px;
@@ -224,38 +225,15 @@ input[type=date]::-webkit-calendar-picker-indicator {
     background-color: #8B7969;
     border: none;
     text-align: left;
-    font-size: 18px;
-    font-weight:700;
+    font-size: 20px;
+    font-weight:bold;
     color: #fff;
 }
 
 /* 問い合わせ一覧 */
 .contact-list__data {
-    padding: 25px 0 25px 60px;
+    padding: 15px 0 15px 60px;
     text-align: left;
     font-size: 18px;
     color: #8B7969;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

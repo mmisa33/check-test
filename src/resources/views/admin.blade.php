@@ -17,7 +17,7 @@
             @csrf
             {{--  キーワード（名前、メールアドレス）  --}}
             <div class="search-form__item">
-                <input class="search-form__item--keyword" type="keyword" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('keyword', request('keyword'))  }}">
+                <input class="search-form__item--keyword" type="keyword" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ request('keyword') }}">
             </div>
 
             {{--  性別  --}}
@@ -50,7 +50,7 @@
             {{--  年月日  --}}
             <div class="search-form__item">
                 <div class="search-form__select-wrapper">
-                    <input class="search-form__item--select search-form__item--date" type="date" name="date" value="{{ old('date', request('date')) }}">
+                    <input class="search-form__item--select search-form__item--date" type="date" name="date" value="{{ request('date') }}">
                     <span class="search-form__select-arrow"></span>
                 </div>
             </div>

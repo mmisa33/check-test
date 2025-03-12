@@ -55,7 +55,7 @@ class AdminController extends Controller
 
         $handle = fopen('php://output', 'w');
 
-        // HTTPヘッダーを設定
+        // HTTPヘッダー
         header('Content-Type: text/csv');
         header('Content-Disposition: attachment;filename="contacts.csv"');
         header('Cache-Control: max-age=0');

@@ -19,7 +19,7 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        // エラーメッセージを定義
+        // エラーメッセージ
         $messages = [
             'name.required' => 'お名前を入力してください',
             'email.required' => 'メールアドレスを入力してください',

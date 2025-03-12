@@ -30,3 +30,4 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
 // ログアウト処理
 Route::post('/logout', [AuthController::class, 'logout']);
+

@@ -55,6 +55,9 @@ Dockerを利用した環境構築が可能で、MySQLデータベースを使用
 - Laravel Fortify（認証機能の追加）
 - Livewire（リアルタイムインタラクション）
 
+## ER図
+![ER図](./assets/images/er_contact_form.png)
+
 
 ## URL
 - 開発環境： [http://localhost/](http://localhost/)

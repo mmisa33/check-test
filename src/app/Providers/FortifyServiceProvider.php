@@ -2,16 +2,19 @@
 
 namespace App\Providers;
 
-use App\Actions\Fortify\CreateNewUser;
+use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\ServiceProvider;
-use Laravel\Fortify\Fortify;
-use App\Http\Requests\LoginRequest;
-use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
 use Illuminate\Support\Facades\Hash;
+
+use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Contracts\RegisterResponse;
+use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
+
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
+use App\Actions\Fortify\CreateNewUser;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -61,6 +64,20 @@ class FortifyServiceProvider extends ServiceProvider
         // ログイン画面にカスタムバリデーションを適用
         $this->app->singleton(FortifyLoginRequest::class, function ($app) {
             return $app->make(LoginRequest::class);
+        });
+
+        // ユーザー登録後のリダイレクト先の変更
+        $this->app->singleton(RegisterResponse::class, function () {
+            return new class implements RegisterResponse {
+                public function toResponse($request)
+                {
+                    auth()->logout();
+                    session()->invalidate();
+                    session()->regenerateToken();
+
+                    return redirect('/login');
+                }
+            };
         });
     }
 }

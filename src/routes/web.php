@@ -28,8 +28,6 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/export', [AdminController::class, 'export']);    // エクスポート
 });
 
-
-
 // ログアウト処理
 Route::post('/logout', [AuthController::class, 'logout']);
 

@@ -31,23 +31,17 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // 新規ユーザー作成処理のカスタマイズ
+        // ユーザー登録処理のカスタマイズ
         Fortify::createUsersUsing(CreateNewUser::class);
 
-        // ログイン画面
+        // ログイン画面の表示
         Fortify::loginView(function () {
             return view('auth.login');
         });
 
-        // 登録画面
+        // 登録画面の表示
         Fortify::registerView(function () {
             return view('auth.register');
-        });
-
-        // ログイン試行回数の制限
-        RateLimiter::for('login', function (Request $request) {
-            $email = (string) $request->email;
-            return Limit::perMinute(10)->by($email . $request->ip());
         });
 
         // Fortifyの認証処理
@@ -78,6 +72,12 @@ class FortifyServiceProvider extends ServiceProvider
                     return redirect('/login');
                 }
             };
+        });
+
+        // ログイン試行回数の制限を設定
+        RateLimiter::for('login', function (Request $request) {
+            $email = (string) $request->email;
+            return Limit::perMinute(10)->by($email . $request->ip());
         });
     }
 }
